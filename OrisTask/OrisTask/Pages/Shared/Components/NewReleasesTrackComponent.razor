@@ -1,0 +1,29 @@
+﻿@using OrisTask.Viewmodels;
+
+<div class="swiper-slide">
+    <div class="ms_release_box">
+        <div class="w_top_song">
+            <span class="slider_dot"></span>
+            <div class="w_tp_song_img">
+                <img src="images/weekly/song1.jpg" alt="">
+                <div class="ms_song_overlay">
+                </div>
+                <div class="ms_play_icon">
+                    <img src="images/svg/play.svg" alt="">
+                </div>
+            </div>
+            <div class="w_tp_song_name">
+                <h3><a href="#">@card.TrackName</a></h3>
+                <p>@card.AuthorName</p>
+            </div>
+        </div>
+        <div class="weekly_right">
+            <span class="w_song_time">@card.DurationInMinutes</span>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public TrackSmallViewModel card { get; set; }
+}
