@@ -21,6 +21,11 @@ namespace OrisTask.Viewmodels
             Subtitle = album.Author.Name;
         }
 
+        public CardViewModel(RadioStation station)
+        {
+            Title = station.Name;
+        }
+
         public string Title { get; set; }
         public string? Subtitle { get; set; }
         public string ImageId { get; set; }

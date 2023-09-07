@@ -14,7 +14,8 @@ namespace OrisTask.Viewmodels
         public string TrackName { get; set; }
         public string AuthorName { get; set; }
         public int DurationInSeconds { get; set; }
-        public string DurationInMinutes => $"{DurationInSeconds / 60}:{DurationInSeconds % 60}";
+        public string DurationInMinutes
+            => TimeSpan.FromSeconds(DurationInSeconds).ToString(@"m\:ss");
         public string ImageId { get; set; }
     }
 }

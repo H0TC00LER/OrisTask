@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistance;
 
@@ -11,9 +12,11 @@ using Persistance;
 namespace OrisTask.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230906201634_AddedNullables")]
+    partial class AddedNullables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,7 +191,7 @@ namespace OrisTask.Migrations
 
             modelBuilder.Entity("Domain.Entities.Track", b =>
                 {
-                    b.HasOne("Domain.Entities.Album", "Album")
+                    b.HasOne("Domain.Entities.Album", null)
                         .WithMany("Tracks")
                         .HasForeignKey("AlbumId");
 
@@ -201,8 +204,6 @@ namespace OrisTask.Migrations
                     b.HasOne("Domain.Entities.Genre", null)
                         .WithMany("Tracks")
                         .HasForeignKey("GenreId");
-
-                    b.Navigation("Album");
 
                     b.Navigation("Author");
                 });
