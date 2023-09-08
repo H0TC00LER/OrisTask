@@ -6,8 +6,7 @@
         public string Title { get; set; }
         public Author Author { get; set; }
         public DateTime CreationDate { get; set; }
-        public string? ImageId { get; set; }
         public List<Track> Tracks { get; set; }
-        public List<Comment> Comments { get; set; }
+        public List<Comment> Comments { get; set; } = new List<Comment>();
     }
 }

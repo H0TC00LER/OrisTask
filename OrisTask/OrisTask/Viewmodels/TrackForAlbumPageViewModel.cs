@@ -2,16 +2,16 @@
 
 namespace OrisTask.Viewmodels
 {
-    public class TrackSmallViewModel
+    public class TrackForAlbumPageViewModel
     {
-        public TrackSmallViewModel(Track track)
+        public TrackForAlbumPageViewModel(Track track)
         {
-            TrackName = track.Title;
+            Title = track.Title;
             AuthorName = track.Author.Name;
             DurationInSeconds = track.DurationInSeconds;
         }
 
-        public string TrackName { get; set; }
+        public string Title { get; set; }
         public string AuthorName { get; set; }
         public int DurationInSeconds { get; set; }
         public string DurationInMinutes

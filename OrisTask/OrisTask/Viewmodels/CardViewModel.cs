@@ -28,6 +28,5 @@ namespace OrisTask.Viewmodels
 
         public string Title { get; set; }
         public string? Subtitle { get; set; }
-        public string ImageId { get; set; }
     }
 }

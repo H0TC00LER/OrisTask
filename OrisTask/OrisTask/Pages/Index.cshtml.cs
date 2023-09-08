@@ -20,6 +20,8 @@ namespace OrisTask.Pages.Home
 
         public IEnumerable<CardViewModel> LiveRadio;
 
+        public string[] GenreNames;
+
         public AppDbContext _context;
 
         public IndexModel(AppDbContext context)
@@ -33,6 +35,7 @@ namespace OrisTask.Pages.Home
             var authors = _context.Authors;
             var albums = _context.Albums.Include(a => a.Author).Include(a => a.Comments);
             var stations = _context.Stations;
+            var genres = _context.Genres;
 
             RecentlyPlayed = tracks
                 .Take(10)
@@ -64,6 +67,10 @@ namespace OrisTask.Pages.Home
                 .Take(10)
                 .Select(r => new CardViewModel(r))
                 .AsEnumerable();
+
+            GenreNames = genres
+                .Select(g => g.Name)
+                .ToArray();
         }
     }
 }

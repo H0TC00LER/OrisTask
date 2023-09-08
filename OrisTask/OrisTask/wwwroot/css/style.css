@@ -82,6 +82,9 @@ button:focus {
 .ms_color {
 	color: #3bc8e7 !important
 }
+.comment-text {
+	word-break: break-all;
+}
 .form-control {
 	height: 40px;
 	padding: 0px 20px;
@@ -6502,6 +6505,7 @@ h2.widget-title:after {
 		width: 350%;
 	}
 }
+
 @media(max-width:320px) {
 	.album_btn a.ms_btn {
 		padding: 0px 5px;
