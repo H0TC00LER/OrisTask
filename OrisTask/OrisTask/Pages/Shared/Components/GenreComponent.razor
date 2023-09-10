@@ -1,12 +1,12 @@
-﻿<div class="ms_genres_box">
-    <img src="images/genrs/img2.jpg" alt="" class="img-fluid" />
+﻿<div class="ms_genres_box" style="display: @(name == null ? "none" : "block" )">
+    <img src="/images/genrs/img@(img).jpg" alt="" class="img-fluid" />
     <div class="ms_main_overlay">
         <div class="ms_box_overlay"></div>
         <div class="ms_play_icon">
-            <img src="images/svg/play.svg" alt="">
+            <img src="/images/svg/play.svg" alt="">
         </div>
         <div class="ovrly_text_div">
-            <span class="ovrly_text1"><a href="#">Classical</a></span>
+            <span class="ovrly_text1"><a href="#">@name</a></span>
         </div>
     </div>
     <div class="ms_box_overlay_on">
@@ -19,4 +19,7 @@
 @code {
     [Parameter]
     public string name { get; set; }
+
+    [Parameter]
+    public int img { get; set; }
 }

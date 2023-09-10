@@ -6,6 +6,7 @@ namespace OrisTask.Viewmodels
     {
         public AlbumViewModel(Album album)
         {
+            Id = album.Id;
             Title = album.Title;
             AuthorName = album.Author.Name;
             CreationDate = album.CreationDate;
@@ -19,6 +20,7 @@ namespace OrisTask.Viewmodels
                 .AsEnumerable();
         }
 
+        public string Id { get; set; }  
         public string Title { get; set; }
         public string AuthorName { get; set; }
         public DateTime CreationDate { get; set; }
