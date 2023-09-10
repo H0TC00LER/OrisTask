@@ -20,7 +20,7 @@ namespace OrisTask.Pages.Home
 
         public IEnumerable<CardViewModel> LiveRadio;
 
-        public string[] GenreNames;
+        public GenreViewModel[] Genres;
 
         public AppDbContext _context;
 
@@ -68,8 +68,9 @@ namespace OrisTask.Pages.Home
                 .Select(r => new CardViewModel(r))
                 .AsEnumerable();
 
-            GenreNames = genres
-                .Select(g => g.Name)
+            Genres = genres
+                .Take(6)
+                .Select(g => new GenreViewModel { Id = g.Id, Name = g.Name})
                 .ToArray();
         }
     }

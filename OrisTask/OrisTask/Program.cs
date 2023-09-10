@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Persistance;
-using Microsoft.EntityFrameworkCore.Design;
-using System;
 using Microsoft.Extensions.FileProviders;
+using Services.Contracts;
+using Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +12,8 @@ builder.Services.AddRazorPages();
 var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services
     .AddDbContext<AppDbContext>(options => options.UseSqlServer(connString, b => b.MigrationsAssembly("OrisTask")));
+
+builder.Services.AddScoped<IImageService>(x => new ImageService(builder.Configuration["ImagePath"]));
 
 var app = builder.Build();
 

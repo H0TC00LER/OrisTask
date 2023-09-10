@@ -46,7 +46,7 @@
             
                 @foreach(var track in Model.RecentlyPlayed)
                 {
-                    <component type="typeof(CardComponent)" render-mode="Static" param-card=@track />
+                    <component type="typeof(CardComponent)" render-mode="Static" param-imageType=1 param-card=@track />
                 }
 
             </div>
@@ -109,7 +109,7 @@
             
                 @foreach (var artist in Model.FeaturedArtsits)
                 {
-                    <component type="typeof(CardComponent)" render-mode="Static" param-card=@artist />
+                    <component type="typeof(CardComponent)" render-mode="Static" param-imageType=0 param-card=@artist />
                 }
 
             </div>
@@ -160,7 +160,7 @@
             
                 @foreach(var album in Model.FeaturedAlbums)
                 {
-                    <component type="typeof(CardComponent)" render-mode="Static" param-card=@album />
+                    <component type="typeof(CardComponent)" render-mode="Static" param-imageType=2 param-card=@album />
                 }
             
             </div>
@@ -179,26 +179,26 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <component type="typeof(GenreComponent)" render-mode="Static" param-img="1" param-name=@Model.GenreNames.ElementAtOrDefault(0) />
+                <component type="typeof(GenreComponent)" render-mode="Static" param-genre=@Model.Genres.ElementAtOrDefault(0) />
             </div>
             <div class="col-lg-6">
                 <div class="row">
                     <div class="col-lg-4">
-                        <component type="typeof(GenreComponent)" render-mode="Static" param-img="2" param-name=@Model.GenreNames.ElementAtOrDefault(1) />
+                        <component type="typeof(GenreComponent)" render-mode="Static" param-genre=@Model.Genres.ElementAtOrDefault(1) />
                     </div>
                     <div class="col-lg-8">
-                        <component type="typeof(GenreComponent)" render-mode="Static" param-img="3" param-name=@Model.GenreNames.ElementAtOrDefault(2) />
+                        <component type="typeof(GenreComponent)" render-mode="Static" param-genre=@Model.Genres.ElementAtOrDefault(2) />
                     </div>
                     <div class="col-lg-8">
-                        <component type="typeof(GenreComponent)" render-mode="Static" param-img="5" param-name=@Model.GenreNames.ElementAtOrDefault(3) />
+                        <component type="typeof(GenreComponent)" render-mode="Static" param-genre=@Model.Genres.ElementAtOrDefault(4) />
                     </div>
                     <div class="col-lg-4">
-                        <component type="typeof(GenreComponent)" render-mode="Static" param-img="6" param-name=@Model.GenreNames.ElementAtOrDefault(4) />
+                        <component type="typeof(GenreComponent)" render-mode="Static" param-genre=@Model.Genres.ElementAtOrDefault(5) />
                     </div>
                 </div>
             </div>
             <div class="col-lg-2">
-                <component type="typeof(GenreComponent)" render-mode="Static" param-img="4" param-name=@Model.GenreNames.ElementAtOrDefault(5) />
+                <component type="typeof(GenreComponent)" render-mode="Static" param-genre=@Model.Genres.ElementAtOrDefault(3) />
             </div>
         </div>
     </div>
@@ -223,7 +223,7 @@
             
                 @foreach(var radio in Model.LiveRadio)
                 {
-                    <component type="typeof(CardComponent)" render-mode="Static" param-card=@radio />
+                    <component type="typeof(CardComponent)" render-mode="Static" param-imageType=4 param-card=@radio />
                 }
 
             </div>

@@ -1,9 +1,12 @@
-﻿@using OrisTask.Viewmodels;
+﻿@using Domain.Enums;
+@using OrisTask.Viewmodels;
+@using Services.Contracts;
+@inject IImageService _imageService;
 
 <div class="swiper-slide">
     <div class="ms_rcnt_box">
         <div class="ms_rcnt_box_img">
-            <img src="/images/music/r_music1.jpg" alt="">
+            <img src="data:image;base64,@System.Convert.ToBase64String(_imageService.GetImageById(imageType, card.Id))" alt="">
             <div class="ms_main_overlay">
                 <div class="ms_box_overlay"></div>
                 <div class="ms_more_icon">
@@ -35,5 +38,6 @@
     [Parameter]
     public CardViewModel card { get; set; }
 
-    public string imageId => $"r_music{card.Id}";
+    [Parameter]
+    public ImageType imageType { get; set; }
 }

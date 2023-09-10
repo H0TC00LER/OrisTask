@@ -1,25 +1,27 @@
-﻿<div class="ms_genres_box" style="display: @(name == null ? "none" : "block" )">
-    <img src="/images/genrs/img@(img).jpg" alt="" class="img-fluid" />
+﻿@using Domain.Enums;
+@using OrisTask.Viewmodels;
+@using Services.Contracts;
+@inject IImageService _imageService;
+
+<div class="ms_genres_box" style="display: @(genre == null ? "none" : "block" )">
+    <img src="data:image;base64,@System.Convert.ToBase64String(_imageService.GetImageById(ImageType.Genre, genre == null ? "" : genre.Id))" alt="" class="img-fluid" />
     <div class="ms_main_overlay">
         <div class="ms_box_overlay"></div>
         <div class="ms_play_icon">
             <img src="/images/svg/play.svg" alt="">
         </div>
         <div class="ovrly_text_div">
-            <span class="ovrly_text1"><a href="#">@name</a></span>
+            <span class="ovrly_text1"><a href="#">@(genre == null ? "" : genre.Name)</a></span>
         </div>
     </div>
     <div class="ms_box_overlay_on">
         <div class="ovrly_text_div">
-            <span class="ovrly_text1"><a href="#">@name</a></span>
+            <span class="ovrly_text1"><a href="#">@(genre == null ? "" : genre.Name)</a></span>
         </div>
     </div>
 </div>
 
 @code {
     [Parameter]
-    public string name { get; set; }
-
-    [Parameter]
-    public int img { get; set; }
+    public GenreViewModel genre { get; set; }
 }

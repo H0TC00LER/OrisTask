@@ -1,6 +1,9 @@
 ﻿@page "/albums/{id}"
+@using Domain.Enums;
 @using OrisTask.Pages.Shared.Components;
 @using OrisTask.Viewmodels;
+@using Services.Contracts;
+@inject IImageService _imageService;
 @model OrisTask.Pages.AlbumModel
 @{
 }
@@ -9,7 +12,7 @@
 <div class="ms_album_single_wrapper">
     <div class="album_single_data">
         <div class="album_single_img">
-            <img src="/images/album/single_album.jpg" alt="" class="img-fluid">
+            <img src="data:image;base64,@System.Convert.ToBase64String(_imageService.GetImageById(ImageType.Album, Model.Album.Id))" alt="" class="img-fluid">
         </div>
         <div class="album_single_text">
             <h2>@Model.Album.Title</h2>
@@ -118,7 +121,7 @@
                 
                 @foreach(var track in Model.YouMayAlsoLike)
                 {
-                    <component type="typeof(CardComponent)" render-mode="Static" param-card=@track />
+                    <component type="typeof(CardComponent)" render-mode="Static" param-imageType=1 param-card=@track />
                 }
 
             </div>
@@ -159,7 +162,7 @@
                 
                 @foreach (var radio in Model.LiveRadio)
                 {
-                    <component type="typeof(CardComponent)" render-mode="Static" param-card=@radio />
+                    <component type="typeof(CardComponent)" render-mode="Static" param-imageType=4 param-card=@radio />
                 }
 
             </div>

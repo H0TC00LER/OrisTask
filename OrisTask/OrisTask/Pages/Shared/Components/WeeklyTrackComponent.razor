@@ -1,4 +1,8 @@
-﻿@using OrisTask.Viewmodels;
+﻿@using Domain.Enums;
+@using OrisTask.Viewmodels;
+@using Services.Contracts;
+@inject IImageService _imageService;
+
 <div class="ms_weekly_box">
     <div class="weekly_left">
         <span class="w_top_no">
@@ -6,7 +10,7 @@
         </span>
         <div class="w_top_song">
             <div class="w_tp_song_img">
-                <img src="/images/weekly/song1.jpg" alt="" class="img-fluid">
+                <img src="data:image;base64,@System.Convert.ToBase64String(_imageService.GetImageById(ImageType.Track, card.Id))" alt="" class="img-fluid">
                 <div class="ms_song_overlay">
                 </div>
                 <div class="ms_play_icon">

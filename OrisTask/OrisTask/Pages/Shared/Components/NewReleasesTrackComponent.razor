@@ -1,11 +1,14 @@
-﻿@using OrisTask.Viewmodels;
+﻿@using Domain.Enums;
+@using OrisTask.Viewmodels;
+@using Services.Contracts;
+@inject IImageService _imageService;
 
 <div class="swiper-slide">
     <div class="ms_release_box">
         <div class="w_top_song">
             <span class="slider_dot"></span>
             <div class="w_tp_song_img">
-                <img src="/images/weekly/song1.jpg" alt="">
+                <img src="data:image;base64,@System.Convert.ToBase64String(_imageService.GetImageById(ImageType.Track, card.Id))" alt="">
                 <div class="ms_song_overlay">
                 </div>
                 <div class="ms_play_icon">
